@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilClientController">
+   <children>
+      <Button fx:id="consulterLesFilmsBtn" layoutX="220.0" layoutY="108.0" mnemonicParsing="false" onAction="#onConsulterFilmsClick" prefHeight="48.0" prefWidth="160.0" text="Consulter la liste de films" />
+      <Button fx:id="afficherHistoriqueBtn" layoutX="220.0" layoutY="180.0" mnemonicParsing="false" onAction="#onAfficherHistoriqueClick" prefHeight="48.0" prefWidth="160.0" text="Afficher son historique" />
+      <Button fx:id="changerMdpBtn" layoutX="220.0" layoutY="252.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="48.0" prefWidth="160.0" text="Changer son mot de passe" />
+   </children>
+</Pane>

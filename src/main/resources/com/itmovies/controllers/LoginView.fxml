@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.LoginPageController">
+   <children>
+      <Label layoutX="369.0" layoutY="218.0" prefHeight="29.0" prefWidth="74.0" text="Login" />
+      <Label layoutX="369.0" layoutY="300.0" prefHeight="29.0" prefWidth="74.0" text="Mot de passe" />
+      <TextField fx:id="loginField" layoutX="472.0" layoutY="220.0" />
+      <PasswordField fx:id="passwordField" layoutX="472.0" layoutY="302.0" />
+      <Button fx:id="connectBtn" layoutX="536.0" layoutY="362.0" mnemonicParsing="false" onAction="#onConnectBtnClick" text="Se connecter" />
+   </children>
+</Pane>

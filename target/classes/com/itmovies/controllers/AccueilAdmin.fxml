@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
+   <children>
+      <Button fx:id="gererLesFilmsBtn" layoutX="422.0" layoutY="122.0" mnemonicParsing="false" onAction="#onGererLesFilmsClick" prefHeight="49.0" prefWidth="157.0" text="Gerer les films" />
+      <Button fx:id="gererLesClientsBtn" layoutX="422.0" layoutY="202.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="Gerer les clients" />
+      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="422.0" layoutY="282.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="157.0" text="Afficher l'historique" />
+      <Button fx:id="changerMdpBtn" layoutX="422.0" layoutY="430.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="49.0" prefWidth="157.0" text="Changer son mdp" />
+      <Button fx:id="gererLesAdminsBtn" layoutX="422.0" layoutY="360.0" mnemonicParsing="false" onAction="#onClickGererLesAdminsBtn" prefHeight="49.0" prefWidth="157.0" text="Gerer les administrateurs" />
+   </children>
+</Pane>
