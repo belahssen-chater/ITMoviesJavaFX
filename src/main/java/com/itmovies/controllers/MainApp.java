@@ -12,6 +12,7 @@ import java.io.IOException;
 public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
+        //writed by belahssen's PC
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("SplashScreen.fxml"));
         Scene splashScene = new Scene(fxmlLoader.load());
