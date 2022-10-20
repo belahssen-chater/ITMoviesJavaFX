@@ -35,6 +35,12 @@ public class Utilities {
         alert.setContentText(error);
         alert.show();
     }
+    public static void showSuccessMessage(String message){
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès");
+        alert.setContentText(message);
+        alert.show();
+    }
 
 
     public static void switchScene(String fxmlFileName, String title, ActionEvent event) throws IOException {

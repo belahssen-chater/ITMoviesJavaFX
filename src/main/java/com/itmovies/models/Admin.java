@@ -27,9 +27,10 @@ public class Admin {
     }
 
     public Admin(String id, String nom, String prenom) {
-        this.id = id;
+        /*this.id = id;
         this.nom = nom;
-        this.prenom = prenom;
+        this.prenom = prenom;*/
+        this(id, nom, prenom, null);
     }
 
     public Admin(String id) {

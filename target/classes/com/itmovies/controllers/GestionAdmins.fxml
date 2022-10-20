@@ -8,17 +8,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
 <AnchorPane prefHeight="668.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionAdminsController">
    <children>
-      <Pane fx:id="fieldsPane" layoutX="62.0" layoutY="96.0" prefHeight="124.0" prefWidth="362.0" visible="false">
+      <Pane fx:id="fieldsPane" layoutX="62.0" layoutY="87.0" prefHeight="133.0" prefWidth="362.0">
          <children>
-            <Label layoutX="20.0" layoutY="14.0" prefHeight="28.0" prefWidth="54.0" text="Nom" />
-            <Label layoutX="20.0" layoutY="42.0" prefHeight="28.0" prefWidth="54.0" text="Prénom" />
-            <Label layoutX="20.0" layoutY="70.0" prefHeight="28.0" prefWidth="83.0" text="Mot de passe" />
-            <TextField fx:id="nomField" layoutX="107.0" layoutY="16.0" prefHeight="25.0" prefWidth="182.0" />
-            <TextField fx:id="prenomField" layoutX="107.0" layoutY="44.0" prefHeight="25.0" prefWidth="182.0" />
-            <PasswordField fx:id="mdpField" layoutX="107.0" layoutY="72.0" prefHeight="25.0" prefWidth="182.0" />
+            <Label layoutX="20.0" layoutY="37.0" prefHeight="28.0" prefWidth="54.0" text="Nom" />
+            <Label layoutX="20.0" layoutY="63.0" prefHeight="28.0" prefWidth="54.0" text="Prénom" />
+            <Label layoutX="20.0" layoutY="92.0" prefHeight="28.0" prefWidth="83.0" text="Mot de passe" />
+            <TextField fx:id="nomField" layoutX="107.0" layoutY="38.0" prefHeight="25.0" prefWidth="182.0" />
+            <TextField fx:id="prenomField" layoutX="107.0" layoutY="66.0" prefHeight="25.0" prefWidth="182.0" />
+            <PasswordField fx:id="mdpField" layoutX="107.0" layoutY="94.0" prefHeight="25.0" prefWidth="182.0" />
+            <Label layoutX="20.0" layoutY="1.0" prefHeight="28.0" prefWidth="54.0" text="ID" />
+            <TextField fx:id="idField" layoutX="107.0" layoutY="2.0" prefHeight="25.0" prefWidth="182.0" />
          </children>
       </Pane>
       <Pane layoutX="661.0" layoutY="66.0" prefHeight="184.0" prefWidth="200.0">

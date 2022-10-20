@@ -49,48 +49,6 @@ public class MainApp extends Application {
             });
 
         }).start();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*System.out.println("Client "+ BCrypt.hashpw("op0580600", Utilities.SALT));
-        System.out.println("admin1 "+ BCrypt.hashpw("admin1", Utilities.SALT));*/
-
-        //FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("LoginView.fxml"));
-        //or
-        //FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginView.fxml"));
-
-        /*Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
-        stage.centerOnScreen();
-        stage.setResizable(false);
-        stage.setTitle("Connectez-vous");
-        stage.setScene(scene);
-        stage.show();*/
-        //for splash screen
-        /*splash.show();
-        new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Platform.runLater(() -> {
-                stage.show();
-            });
-
-        }).start();*/
-
-
     }
 
     public static void main(String[] args) {
