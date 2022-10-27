@@ -1,47 +1,40 @@
 package com.itmovies.controllers;
 
 import com.itmovies.models.Admin;
-import com.itmovies.models.Film;
+import com.itmovies.models.Client;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
-public class GestionAdminsController {
+public class GestionClientsController {
     private String nomValue;
-    private String prenomValue;
-    private String idValue;
+    private String telValue;
+    private String cinValue;
     private String mdpValue;
-    private Admin baseAdmin;
-    private String userID;
     private String userType;
-    private void getUserData(ActionEvent event){
-        Node node = (Node) event.getSource();
-        Stage stage = (Stage) node.getScene().getWindow();
-        userType = ((String) stage.getUserData()).split("-")[0];
-        userID = ((String) stage.getUserData()).split("-")[1];
-        System.out.println(userID);
-    }
+    private String userID;
+
+    private Client baseClient;
 
 
     @FXML
     private Button ajouterBtn;
 
     @FXML
-    private Pane fieldsPane;
-    @FXML
-    private TextField idField;
-    @FXML
-    private Button retourBtn;
+    private TextField cinField;
 
     @FXML
-    private PasswordField mdpField;
+    private TextField mdpField;
 
     @FXML
     private Button modifierBtn;
@@ -50,7 +43,7 @@ public class GestionAdminsController {
     private TextField nomField;
 
     @FXML
-    private TextField prenomField;
+    private Button retourBtn;
 
     @FXML
     private Button supprimerBtn;
@@ -58,8 +51,15 @@ public class GestionAdminsController {
     @FXML
     private TableView<?> table;
 
-    public void initialize(){
-        Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+    @FXML
+    private TextField telField;
+
+    @FXML
+    private Pane fieldsPane;
+
+    @FXML
+    void initialize() {
+        Utilities.buildData("SELECT cin, nom, tel FROM clients", table);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 fieldsPane.setVisible(true);
@@ -72,8 +72,8 @@ public class GestionAdminsController {
                 String[] row = selectedItems.get(0).toString().split(", ");
                 row[0] = row[0].substring(1);
                 row[row.length - 1] = row[row.length - 1].replace("]", "");
-                baseAdmin = new Admin(row[0], row[1], row[2]);
-                fillValues(baseAdmin);
+                baseClient = new Client(row[0], row[1], "", row[2]);
+                fillValues(baseClient);
                 modifierBtn.setDisable(false);
                 ajouterBtn.setDisable(true);
                 supprimerBtn.setDisable(false);
@@ -86,47 +86,50 @@ public class GestionAdminsController {
         }
         table.getColumns().clear();
     }
+
+
     @FXML
     void onAjouterBtnClick(ActionEvent event) {
         if (!fieldsPane.isVisible())
             fieldsPane.setVisible(true);
         else {
-            if (!checkFields()){
+            if (!checkFields()) {
                 Utilities.showErrorMessage("Veuillez remplir tous les champs");
                 return;
             }
             getValues();
             mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
-            Admin adminToAdd = new Admin(idValue , nomValue, prenomValue, mdpValue);
-            if (adminToAdd.ajouterAdmin()){
-                Utilities.showSuccessMessage("Admin ajouté avec succès");
+            Client clientToAdd = new Client(cinValue, nomValue, mdpValue, telValue);
+            if (clientToAdd.ajouterClient()) {
+                Utilities.showSuccessMessage("Client ajouté avec succès");
                 clearTable();
-                Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+                Utilities.buildData("SELECT cin, nom, tel FROM clients", table);
                 fieldsPane.setVisible(false);
                 return;
             }
-            Utilities.showErrorMessage("Erreur lors de l'ajout de l'admin");
-
-
-
+            Utilities.showErrorMessage("Erreur lors de l'ajout du client");
         }
-
     }
 
     @FXML
     void onModifierBtnClick(ActionEvent event) {
-        if (!checkFieldsWithoutId()){
+        if (!checkFieldsWithoutCin()){
             Utilities.showErrorMessage("Veuillez remplir tous les champs");
             return;
         }
         getValues();
-        mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
-        Admin adminToModify = new Admin("00", nomValue, prenomValue, mdpValue);
+        Client clientToModify;
+        if (mdpField.getText().isBlank())
+            clientToModify = new Client(cinValue, nomValue, "", telValue);
+        else{
+            mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
+            clientToModify = new Client(cinValue, nomValue, mdpValue, telValue);
+        }
         try {
-            if (baseAdmin.modifierAdmin(adminToModify)){
-                Utilities.showSuccessMessage("Admin modifié avec succès");
+            if (baseClient.modifierClient(clientToModify)) {
+                Utilities.showSuccessMessage("client modifié avec succès");
                 clearTable();
-                Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+                Utilities.buildData("SELECT cin, nom, tel FROM clients", table);
                 fieldsPane.setVisible(false);
                 return;
             }
@@ -135,54 +138,68 @@ public class GestionAdminsController {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        Utilities.showErrorMessage("Erreur lors de la modification de l'admin");
+        Utilities.showErrorMessage("Erreur lors de la modification du client");
 
+    }
+
+    @FXML
+    void onRetourBtnClick(ActionEvent event) {
+        getUserData(event);
+        try {
+            Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
     void onSupprimerBtnClick(ActionEvent event) {
-        if (baseAdmin.supprimerAdmin()){
-            Utilities.showSuccessMessage("Admin supprimé avec succès");
+        if (baseClient.supprimerClient()){
+            Utilities.showSuccessMessage("Client supprimé avec succès");
             clearTable();
-            Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+            Utilities.buildData("SELECT cin, nom, tel FROM clients", table);
             fieldsPane.setVisible(false);
             return;
         }
-        Utilities.showErrorMessage("Erreur lors de la suppression de l'admin");
-
-
+        Utilities.showErrorMessage("Erreur lors de la suppression du client");
     }
-    @FXML
-    void onRetourBtnClick(ActionEvent event) throws IOException {
-        getUserData(event);
-            Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
-    }
+
 
     private void getValues(){
         nomValue = nomField.getText();
-        prenomValue = prenomField.getText();
+        telValue = telField.getText();
+        cinValue = cinField.getText();
         mdpValue = mdpField.getText();
-        idValue = idField.getText();
     }
-    private void fillValues(Admin admin){
-        // remplissage des champs sauf mdp et id
-        nomField.setText(admin.getNom());
-        prenomField.setText(admin.getPrenom());
+    private void fillValues(Client client){
+        // remplissage des champs sauf mdp et cin
+        nomField.setText(client.getNom());
+        telField.setText(client.getTel());
+
+
+
 
     }
     private boolean checkFields(){
         // check if there is one or more blank fields
-        return !(nomField.getText().isBlank() || prenomField.getText().isBlank() || mdpField.getText().isBlank() || idField.getText().isBlank());
+        return !(nomField.getText().isBlank() || telField.getText().isBlank() || cinField.getText().isBlank() || mdpField.getText().isBlank());
     }
-    private boolean checkFieldsWithoutId(){
+    private boolean checkFieldsWithoutCin(){
         // check if there is one or more blank fields
-        return !(nomField.getText().isBlank() || prenomField.getText().isBlank() || mdpField.getText().isBlank());
+        return !(nomField.getText().isBlank() || telField.getText().isBlank() || mdpField.getText().isBlank());
     }
-    private void showFieldsWithIdAndMdp(){
-        // show fields with id and mdp
+    private void getUserData(ActionEvent event){
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        userType = ((String) stage.getUserData()).split("-")[0];
+        userID = ((String) stage.getUserData()).split("-")[1];
+        System.out.println(userID);
+    }
+    /*private void showFieldsWithCinAndMdp(){
+        // show fields without cin and mdp
         fieldsPane.setVisible(true);
-        idField.setVisible(true);
-        mdpField.setVisible(true);
+
+
     }
     private void hideFieldsWithIdAndMdp(){
         // hide fields with id and mdp
@@ -200,5 +217,6 @@ public class GestionAdminsController {
         fieldsPane.setVisible(false);
         idField.setVisible(true);
         mdpField.setVisible(true);
-    }
+    }*/
+
 }

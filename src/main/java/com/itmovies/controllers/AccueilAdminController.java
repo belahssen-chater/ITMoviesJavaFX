@@ -54,6 +54,14 @@ public class AccueilAdminController {
 
     @FXML
     private void onGererLesFilmsClick(ActionEvent event) throws IOException {
-        Utilities.switchScene("GestionFilms.fxml", "Gestion des films", event);
+        Utilities.switchScene("GestionFilms.fxml", "Gestion des films", userType, userID, event);
+    }
+    @FXML
+    private void onGererLesClientsClick(ActionEvent event) throws IOException {
+        Utilities.switchScene("GestionClients.fxml", "Gestion des clients", userType, userID, event);
+    }
+    @FXML
+    private void onHistoriqueBtnClick(ActionEvent event) throws IOException {
+        Utilities.switchScene("AchatsCoteAdmin.fxml", "Historique d'achat", userType, userID, event);
     }
 }

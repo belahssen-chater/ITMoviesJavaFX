@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="498.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
    <children>
       <ImageView fitHeight="498.0" fitWidth="522.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,11 +17,11 @@
          <font>
             <Font name="Century" size="15.0" />
          </font></Button>
-      <Button fx:id="gererLesClientsBtn" layoutX="263.0" layoutY="169.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="191.0" text="Mnage Customers" textAlignment="CENTER" textFill="#46ad36">
+      <Button fx:id="gererLesClientsBtn" layoutX="263.0" layoutY="169.0" mnemonicParsing="false" onAction="#onGererLesClientsClick" prefHeight="49.0" prefWidth="191.0" text="Mnage Customers" textAlignment="CENTER" textFill="#46ad36">
          <font>
             <Font name="Century" size="15.0" />
          </font></Button>
-      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="263.0" layoutY="249.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="191.0" text="Show History" textAlignment="CENTER" textFill="#46ad36">
+      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="263.0" layoutY="249.0" mnemonicParsing="false" onAction="#onHistoriqueBtnClick" prefHeight="49.0" prefWidth="191.0" text="Show History" textAlignment="CENTER" textFill="#46ad36">
          <font>
             <Font name="Century" size="15.0" />
          </font></Button>

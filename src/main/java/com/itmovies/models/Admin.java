@@ -1,5 +1,6 @@
 package com.itmovies.models;
 
+import com.itmovies.controllers.BCrypt;
 import com.itmovies.controllers.Utilities;
 
 import java.sql.PreparedStatement;
@@ -47,7 +48,7 @@ public class Admin {
                 Utilities.showErrorMessage("Admin existant");
                 return false;
             }
-            query = "INSERT INTO admin (id, nom, prenom, password) VALUES (?, ?, ?, ?);";
+            query = "INSERT INTO admins (id, nom, prenom, password) VALUES (?, ?, ?, ?);";
             preparedStatement = Utilities.con.prepareStatement(query);
             preparedStatement.setString(1, this.id);
             preparedStatement.setString(2, this.nom);
@@ -80,7 +81,7 @@ public class Admin {
         if (Utilities.con.isClosed()){
             Utilities.connectDB();
         }
-        if (password == null){
+        if (admin.password == null){
             query = "UPDATE admins SET nom=?, prenom=? WHERE id=?;";
             preparedStatement = Utilities.con.prepareStatement(query);
             preparedStatement.setString(1, admin.nom);

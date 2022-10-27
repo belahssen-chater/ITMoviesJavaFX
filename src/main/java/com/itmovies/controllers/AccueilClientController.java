@@ -29,7 +29,12 @@ public class AccueilClientController {
 
     @FXML
     private void onAfficherHistoriqueClick(ActionEvent event){
-
+        getUserData(event);
+        try {
+            Utilities.switchScene("HistoriqueCoteClient.fxml", "Historique", userType, userID, event);
+        } catch (IOException e) {
+            Utilities.showErrorMessage(e.getMessage());
+        }
     }
 
     @FXML
