@@ -90,7 +90,7 @@ public class GestionFilmsController {
 
 
     public void initialize(){
-        Utilities.buildData("SELECT * FROM FILMS", table);
+        Utilities.buildData("SELECT * FROM `films`", table);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 textFields.setVisible(true);
@@ -210,6 +210,8 @@ public class GestionFilmsController {
     @FXML
     void onRetourBtnClick(ActionEvent event) throws IOException {
         getUserData(event);
+        System.out.println(userID);
+        System.out.println(userType);
         if (userType == "client"){
             Utilities.switchScene("AccueilClient.fxml", "Espace client", userType, userID, event);
         } else {

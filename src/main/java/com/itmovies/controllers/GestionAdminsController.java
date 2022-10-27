@@ -59,7 +59,7 @@ public class GestionAdminsController {
     private TableView<?> table;
 
     public void initialize(){
-        Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+        Utilities.buildData("SELECT id, nom, prenom FROM admins WHERE id!='super'", table);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 fieldsPane.setVisible(true);

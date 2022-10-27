@@ -26,7 +26,7 @@ public class ConsulterListeFilmsController {
     private TableView<?> table;
 
     public void initialize(){
-        Utilities.buildData("SELECT * FROM FILMS", table);
+        Utilities.buildData("SELECT * FROM `films`", table);
         System.out.println(userType);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {

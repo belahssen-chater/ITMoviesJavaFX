@@ -81,7 +81,10 @@ public class Utilities {
 
     public static void connectDB() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/moviesdb","root","root");
+
+        //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/moviesdb","root","root");
+        con = DriverManager.getConnection("jdbc:mysql://195.179.238.52/u962515021_moviesdb","u962515021_root","ITMovies2022");
+
     }
 
 
@@ -131,6 +134,7 @@ public class Utilities {
             table.setItems(data);
         }catch(Exception e){
             e.printStackTrace();
+            System.out.println(e.toString());
             System.out.println("Error on Building Data");
         }
     }

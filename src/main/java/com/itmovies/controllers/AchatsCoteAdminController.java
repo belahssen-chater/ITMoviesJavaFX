@@ -73,6 +73,8 @@ public class AchatsCoteAdminController {
     @FXML
     void onRetourBtnClick(ActionEvent event) {
         getUserData(event);
+        System.out.println(userID);
+        System.out.println(userType);
         try {
             Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
         } catch (IOException e) {
