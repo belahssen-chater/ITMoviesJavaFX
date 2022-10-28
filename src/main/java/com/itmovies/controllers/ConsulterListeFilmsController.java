@@ -20,9 +20,6 @@ public class ConsulterListeFilmsController {
     private Button acheterBtn;
 
     @FXML
-    private Button retourBtn;
-
-    @FXML
     private TableView<?> table;
 
     public void initialize(){
@@ -30,11 +27,11 @@ public class ConsulterListeFilmsController {
         System.out.println(userType);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
-                TableView.TableViewSelectionModel selectionModel =
+                TableView.TableViewSelectionModel<?> selectionModel =
                         table.getSelectionModel();
                 selectionModel.setSelectionMode(
                         SelectionMode.SINGLE);
-                ObservableList selectedItems =
+                ObservableList<?> selectedItems =
                         selectionModel.getSelectedItems();
                 String[] row = selectedItems.get(0).toString().split(", ");
                 row[0] = row[0].substring(1);
@@ -49,7 +46,7 @@ public class ConsulterListeFilmsController {
     }
 
     @FXML
-    void onAcheterBtnClick(ActionEvent event) {
+    void onAcheterBtnClick() {
         if (achat.demanderAchat()){
             Utilities.showSuccessMessage("Achat effectué avec succès");
         }else{

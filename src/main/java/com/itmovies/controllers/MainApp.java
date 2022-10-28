@@ -26,7 +26,7 @@ public class MainApp extends Application {
         Stage stage = new Stage();
         Scene scene = null;
         try {
-            scene = new Scene(fxmlLoader.load(), 1000, 600);
+            scene = new Scene(fxmlLoader.load());
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
