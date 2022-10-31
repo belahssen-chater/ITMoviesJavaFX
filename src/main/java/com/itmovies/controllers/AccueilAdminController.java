@@ -42,7 +42,7 @@ public class AccueilAdminController {
                 Utilities.showErrorMessage(e.getMessage());
             }
         } else
-            Utilities.showErrorMessage("Vous n'êtes pas autorisé à gérer les admins");
+            Utilities.showErrorMessage("You are not allowed to manage admins");
 
     }
 

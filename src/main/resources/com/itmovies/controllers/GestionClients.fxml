@@ -4,28 +4,47 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionClientsController">
+<AnchorPane prefHeight="589.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionClientsController">
    <children>
-      <Button fx:id="retourBtn" layoutX="34.0" layoutY="24.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="31.0" prefWidth="59.0" text="Retour" />
-      <Pane layoutX="70.0" layoutY="79.0" prefHeight="198.0" prefWidth="286.0" fx:id="fieldsPane">
+      <ImageView fitHeight="608.0" fitWidth="900.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@./assets/2496925.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="retourBtn" layoutX="34.0" layoutY="24.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="31.0" prefWidth="59.0" text="Back" textFill="#09184d" />
+      <Pane fx:id="fieldsPane" layoutX="155.0" layoutY="96.0" prefHeight="198.0" prefWidth="286.0">
          <children>
-            <Label layoutX="21.0" layoutY="29.0" text="CIN" />
-            <Label layoutX="21.0" layoutY="136.0" text="Mdp" />
-            <Label layoutX="21.0" layoutY="100.0" text="Tel" />
-            <Label layoutX="21.0" layoutY="64.0" text="Nom" />
+            <Label layoutX="21.0" layoutY="29.0" text="CIN" textFill="#09184d">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="136.0" text="Pass" textFill="#09184d">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="100.0" text="Tel" textFill="#09184d">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Label>
+            <Label layoutX="21.0" layoutY="64.0" text="Name" textFill="#09184d">
+               <font>
+                  <Font name="Bell MT Bold" size="14.0" />
+               </font></Label>
             <TextField fx:id="cinField" layoutX="69.0" layoutY="22.0" prefHeight="31.0" prefWidth="193.0" />
             <TextField fx:id="nomField" layoutX="69.0" layoutY="57.0" prefHeight="31.0" prefWidth="193.0" />
             <TextField fx:id="telField" layoutX="69.0" layoutY="93.0" prefHeight="31.0" prefWidth="193.0" />
             <TextField fx:id="mdpField" layoutX="69.0" layoutY="129.0" prefHeight="31.0" prefWidth="193.0" />
          </children>
       </Pane>
-      <Button fx:id="ajouterBtn" layoutX="645.0" layoutY="96.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="31.0" prefWidth="59.0" text="Ajouter" />
-      <Button fx:id="modifierBtn" layoutX="645.0" layoutY="178.0" mnemonicParsing="false" onAction="#onModifierBtnClick" prefHeight="31.0" prefWidth="59.0" text="Modifier" />
-      <Button fx:id="supprimerBtn" layoutX="645.0" layoutY="137.0" mnemonicParsing="false" onAction="#onSupprimerBtnClick" prefHeight="31.0" prefWidth="59.0" text="Supprimer" />
+      <Button fx:id="ajouterBtn" layoutX="645.0" layoutY="96.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="31.0" prefWidth="59.0" text="Add" textFill="#09184d" />
+      <Button fx:id="modifierBtn" layoutX="645.0" layoutY="178.0" mnemonicParsing="false" onAction="#onModifierBtnClick" prefHeight="31.0" prefWidth="59.0" text="Modify" textFill="#09184d" />
+      <Button fx:id="supprimerBtn" layoutX="645.0" layoutY="137.0" mnemonicParsing="false" onAction="#onSupprimerBtnClick" prefHeight="31.0" prefWidth="59.0" text="Delete" textFill="#09184d" />
       <TableView fx:id="table" layoutX="34.0" layoutY="300.0" prefHeight="278.0" prefWidth="830.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

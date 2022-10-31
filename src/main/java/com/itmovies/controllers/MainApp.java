@@ -44,7 +44,7 @@ public class MainApp extends Application {
                 stage.show();
                 primaryStage.hide();
                 if (!stage.isShowing()){
-                    Utilities.showErrorMessage("Une erreur s'est produite lors de l'affichage de la page d'accueil");
+                    Utilities.showErrorMessage("An error occurred while displaying the homepage");
                 }
             });
 
