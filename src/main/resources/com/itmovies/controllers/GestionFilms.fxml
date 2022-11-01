@@ -12,11 +12,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionFilmsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="638.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionFilmsController">
    <children>
-      <ImageView fitHeight="539.0" fitWidth="638.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="674.0" fitWidth="646.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@./assets/Sans titre.jpg" />
+            <Image url="@./assets/bbbb.jpg" />
          </image>
       </ImageView>
       <Button fx:id="ajouterBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="438.0" layoutY="105.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Add" textFill="WHITE">
@@ -31,7 +31,7 @@
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>
-      <Pane fx:id="textFields" layoutX="117.0" layoutY="33.0" prefHeight="315.0" prefWidth="272.0" style="-fx-background-color: #ff8b00;" visible="false">
+      <Pane fx:id="textFields" layoutX="117.0" layoutY="33.0" prefHeight="315.0" prefWidth="272.0" style="-fx-background-color: #c71521;" visible="false">
          <children>
             <Label layoutX="4.0" layoutY="4.0" text="Title" />
             <TextField fx:id="titreField" layoutX="87.0" />
