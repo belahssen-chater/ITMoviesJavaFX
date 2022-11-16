@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -12,21 +13,24 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionFilmsController">
    <children>
       <ImageView fitHeight="658.0" fitWidth="819.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
-             <Image url="@./assets/IT.jpg"/>
+             <Image url="@./assets/IT.jpg" />
+         <effect>
+            <ColorAdjust brightness="-0.65" />
+         </effect>
       </ImageView>
-      <Button fx:id="ajouterBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="438.0" layoutY="105.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Add" textFill="WHITE">
+      <Button fx:id="ajouterBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="681.0" layoutY="139.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Add" textFill="WHITE">
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>
-      <Button fx:id="modifierBtn" cache="true" cacheHint="QUALITY" defaultButton="true" disable="true" layoutX="438.0" layoutY="236.0" mnemonicParsing="false" onAction="#onModifierBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Modify" textFill="WHITE">
+      <Button fx:id="modifierBtn" cache="true" cacheHint="QUALITY" defaultButton="true" disable="true" layoutX="681.0" layoutY="261.0" mnemonicParsing="false" onAction="#onModifierBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Modify" textFill="WHITE">
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>
-      <Button fx:id="supprimerBtn" cache="true" cacheHint="QUALITY" defaultButton="true" disable="true" layoutX="438.0" layoutY="179.0" mnemonicParsing="false" onAction="#onSupprimerBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Delete" textFill="WHITE">
+      <Button fx:id="supprimerBtn" cache="true" cacheHint="QUALITY" defaultButton="true" disable="true" layoutX="681.0" layoutY="204.0" mnemonicParsing="false" onAction="#onSupprimerBtnClick" prefHeight="45.0" prefWidth="117.0" style="-fx-background-color: #c71521;" text="Delete" textFill="WHITE">
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>
-      <Pane fx:id="textFields" layoutX="117.0" layoutY="22.0" prefHeight="315.0" prefWidth="272.0">
+      <Pane fx:id="textFields" layoutX="122.0" layoutY="36.0" prefHeight="315.0" prefWidth="272.0">
          <children>
             <Label layoutX="4.0" layoutY="4.0" text="Title" textFill="WHITE">
                <font>
@@ -43,39 +47,39 @@
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
             <TextField fx:id="langueField" layoutX="87.0" layoutY="84.0" />
-            <Label layoutX="11.0" layoutY="128.0" text="Date" textFill="WHITE">
+            <Label layoutX="5.0" layoutY="128.0" text="Date" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
             <TextField fx:id="anneeField" layoutX="87.0" layoutY="124.0" />
-            <Label layoutX="9.0" layoutY="164.0" text="Duration" textFill="WHITE">
+            <Label layoutX="5.0" layoutY="164.0" text="Duration" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
             <TextField fx:id="dureeField" layoutX="87.0" layoutY="160.0" />
-            <Label layoutX="13.0" layoutY="199.0" text="Price" textFill="WHITE">
+            <Label layoutX="7.0" layoutY="199.0" text="Price" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="prixField" layoutX="85.0" layoutY="195.0" />
-            <Button fx:id="okBtn" layoutX="179.0" layoutY="279.0" mnemonicParsing="false" onAction="#onOkBtnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Done" textFill="WHITE" />
-            <Label layoutX="13.0" layoutY="241.0" text="Stock" textFill="WHITE">
+            <TextField fx:id="prixField" layoutX="87.0" layoutY="195.0" />
+            <Button fx:id="okBtn" layoutX="155.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOkBtnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Done" textFill="WHITE" />
+            <Label layoutX="7.0" layoutY="241.0" text="Stock" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="stockField" layoutX="85.0" layoutY="237.0" />
+            <TextField fx:id="stockField" layoutX="87.0" layoutY="237.0" />
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="28.0" layoutY="369.0" prefHeight="259.0" prefWidth="617.0" tableMenuButtonVisible="true">
+      <TableView fx:id="table" layoutX="22.0" layoutY="367.0" prefHeight="273.0" prefWidth="776.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy></TableView>
-      <Label layoutX="306.0" layoutY="336.0" prefHeight="27.0" prefWidth="93.0" text="Search" textAlignment="CENTER" textFill="WHITE">
+      <Label layoutX="496.0" layoutY="324.0" prefHeight="27.0" prefWidth="93.0" text="Search" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Copperplate Gothic Light" size="19.0" />
          </font></Label>
-      <TextField fx:id="rechercheField" cache="true" cacheHint="QUALITY" layoutX="399.0" layoutY="331.0" onKeyReleased="#onRechercheFieldChange" prefHeight="36.0" prefWidth="195.0" />
-      <Button fx:id="retourBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Back" textFill="WHITE" underline="true" wrapText="true">
+      <TextField fx:id="rechercheField" cache="true" cacheHint="QUALITY" layoutX="603.0" layoutY="319.0" onKeyReleased="#onRechercheFieldChange" prefHeight="36.0" prefWidth="195.0" />
+      <Button fx:id="retourBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Back" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>

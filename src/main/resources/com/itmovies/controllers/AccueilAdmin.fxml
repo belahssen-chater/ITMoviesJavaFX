@@ -6,30 +6,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
    <children>
       <ImageView fitHeight="519.0" fitWidth="703.0" layoutX="-94.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./assets/IT (3).jpg" />
          </image>
       </ImageView>
-      <Button fx:id="gererLesFilmsBtn" layoutX="351.0" layoutY="69.0" mnemonicParsing="false" onAction="#onGererLesFilmsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Movies" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesFilmsBtn" layoutX="351.0" layoutY="72.0" mnemonicParsing="false" onAction="#onGererLesFilmsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Movies" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="gererLesClientsBtn" layoutX="351.0" layoutY="140.0" mnemonicParsing="false" onAction="#onGererLesClientsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Mnage Customers" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesClientsBtn" layoutX="351.0" layoutY="140.0" mnemonicParsing="false" onAction="#onGererLesClientsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Customers" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="351.0" layoutY="225.0" mnemonicParsing="false" onAction="#onHistoriqueBtnClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Show History" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="351.0" layoutY="211.0" mnemonicParsing="false" onAction="#onHistoriqueBtnClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Show History" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="changerMdpBtn" layoutX="351.0" layoutY="370.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Change Password" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="changerMdpBtn" layoutX="351.0" layoutY="346.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Change Password" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="gererLesAdminsBtn" layoutX="351.0" layoutY="294.0" mnemonicParsing="false" onAction="#onClickGererLesAdminsBtn" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Administrators" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesAdminsBtn" layoutX="351.0" layoutY="280.0" mnemonicParsing="false" onAction="#onClickGererLesAdminsBtn" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Administrators" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
