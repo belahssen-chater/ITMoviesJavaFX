@@ -36,6 +36,9 @@ public class GestionFilmsController {
     private Button ajouterBtn;
 
     @FXML
+    private TextField stockField;
+
+    @FXML
     private TextField anneeField;
 
     @FXML
@@ -81,6 +84,7 @@ public class GestionFilmsController {
     private int anneeVal;
     private int idVal;
     private double prixVal;
+    private int stockVal;
 
     Film baseFilm;
     Film filmToAdd;
@@ -106,7 +110,7 @@ public class GestionFilmsController {
                 row[row.length - 1] = row[row.length - 1].replace("]", "");
                 //String[] row = (String[]) selectedItems.get(0);
                 baseFilm = new Film(Integer.parseInt(row[0]), row[1], row[2], row[3], Integer.parseInt(row[4]), row[5],
-                        Double.parseDouble(row[6]));
+                        Double.parseDouble(row[6]), Integer.parseInt(row[7]));
                 fillValues(baseFilm);
                 modifierBtn.setDisable(false);
                 ajouterBtn.setDisable(true);
@@ -122,7 +126,7 @@ public class GestionFilmsController {
         if (textFields.isVisible()){
             if (checkFields()){
                 getValues();
-                filmToAdd = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal);
+                filmToAdd = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
                 if (filmToAdd.ajouterFilm()){
                     Utilities.showErrorMessage("Succes");
                     clearTable();
@@ -147,7 +151,7 @@ public class GestionFilmsController {
     void onModifierBtnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (checkFields()){
             getValues();
-            filmToModify = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal);
+            filmToModify = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
             if (filmToModify.equals(baseFilm)){
                 Utilities.showErrorMessage("Rien n'a été modifié");
             } else {
@@ -186,7 +190,7 @@ public class GestionFilmsController {
                 SELECT * FROM FILMS WHERE id like ? OR 
                 titre like ? OR realisateur like ? OR 
                 langue like ? OR annee like ? OR duree like ? OR 
-                prix like ?;
+                prix like ? OR stock like ?
                 """;
         query = query.replaceAll("\\?", "'%" +keyword+ "%'");
         clearTable();
@@ -227,6 +231,7 @@ public class GestionFilmsController {
         dureeVal = dureeField.getText();
         anneeVal = Integer.parseInt(anneeField.getText());
         prixVal = Double.parseDouble(prixField.getText());
+        stockVal = Integer.parseInt(stockField.getText());
     }
     private void fillValues(Film film){
         titreField.setText(film.getTitre());
@@ -235,6 +240,7 @@ public class GestionFilmsController {
         dureeField.setText(film.getDuree());
         anneeField.setText(Integer.toString(film.getAnnee()));
         prixField.setText(Double.toString(film.getPrix()));
+        stockField.setText(Integer.toString(film.getStock()));
     }
     private boolean checkFields(){
 
@@ -244,7 +250,8 @@ public class GestionFilmsController {
                 langueField,
                 dureeField,
                 anneeField,
-                prixField
+                prixField,
+                stockField
         };
         for (TextField field:
              fields) {

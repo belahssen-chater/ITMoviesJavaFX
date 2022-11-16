@@ -14,6 +14,7 @@ public class Film {
     private int annee;
     private String duree;
     private double prix;
+    private int stock;
 
     private PreparedStatement preparedStatement;
     private ResultSet rs;
@@ -21,7 +22,7 @@ public class Film {
     private int rowsAffected;
 
 
-    public Film(int id, String titre, String realisateur, String langue, int annee, String duree, double prix) {
+    public Film(int id, String titre, String realisateur, String langue, int annee, String duree, double prix, int stock) {
         this.id = id;
         this.titre = titre;
         this.realisateur = realisateur;
@@ -29,23 +30,25 @@ public class Film {
         this.annee = annee;
         this.duree = duree;
         this.prix = prix;
+        this.stock = stock;
     }
-    public Film(String titre, String realisateur, String langue, int annee, String duree, double prix) {
+    public Film(String titre, String realisateur, String langue, int annee, String duree, double prix, int stock) {
         this.titre = titre;
         this.realisateur = realisateur;
         this.langue = langue;
         this.annee = annee;
         this.duree = duree;
         this.prix = prix;
+        this.stock = stock;
     }
     public Film(int id){
-        this(id, "", "", "", 0, "", 0);
+        this(id, "", "", "", 0, "", 0, 0);
     }
     public boolean ajouterFilm() throws SQLException, ClassNotFoundException {
         if (Utilities.con.isClosed()){
             Utilities.connectDB();
         }
-        query = "INSERT INTO films (titre, realisateur, langue, annee, duree, prix) VALUES (?, ?, ?, ?, ?, ?);";
+        query = "INSERT INTO films (titre, realisateur, langue, annee, duree, prix, stock) VALUES (?, ?, ?, ?, ?, ?, ?);";
         preparedStatement = Utilities.con.prepareStatement(query);
         preparedStatement.setString(1, this.titre);
         preparedStatement.setString(2, this.realisateur);
@@ -53,6 +56,7 @@ public class Film {
         preparedStatement.setInt(4, this.annee);
         preparedStatement.setString(5, this.duree);
         preparedStatement.setDouble(6, this.prix);
+        preparedStatement.setInt(7, this.stock);
         rowsAffected = preparedStatement.executeUpdate();
         return rowsAffected > 0;
     }
@@ -70,7 +74,7 @@ public class Film {
         if (Utilities.con.isClosed()){
             Utilities.connectDB();
         }
-        query = "UPDATE films SET titre=?, realisateur=?, langue=?, annee=?, duree=?, prix=? WHERE id=?;";
+        query = "UPDATE films SET titre=?, realisateur=?, langue=?, annee=?, duree=?, prix=?, stock=? WHERE id=?;";
         preparedStatement = Utilities.con.prepareStatement(query);
         preparedStatement.setString(1, updatedFilm.titre);
         preparedStatement.setString(2, updatedFilm.realisateur);
@@ -78,7 +82,9 @@ public class Film {
         preparedStatement.setInt(4, updatedFilm.annee);
         preparedStatement.setString(5, updatedFilm.duree);
         preparedStatement.setDouble(6, updatedFilm.prix);
-        preparedStatement.setInt(7, this.id);
+        preparedStatement.setInt(7, updatedFilm.stock);
+        preparedStatement.setInt(8, this.id);
+
         rowsAffected = preparedStatement.executeUpdate();
         return rowsAffected > 0;
     }
@@ -88,6 +94,7 @@ public class Film {
         if (!(this.duree.equals(film.duree))) return false;
         if (!(this.langue.equals(film.langue))) return false;
         if (!(this.realisateur.equals(film.realisateur))) return false;
+        if (this.stock != film.stock) return false;
         return this.titre.equals(film.titre);
     }
 
@@ -137,6 +144,14 @@ public class Film {
 
     public void setDuree(String duree) {
         this.duree = duree;
+    }
+    //stock getter and setter
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
     public double getPrix() {

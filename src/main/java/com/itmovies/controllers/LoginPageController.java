@@ -7,6 +7,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,16 @@ public class LoginPageController {
     private TextField loginField;
     @FXML
     private PasswordField passwordField;
+
+
+
+    @FXML
+    private void onKeyPressedPwdField(KeyEvent event){
+        // on enter pressed, fire the connect btn
+        if(event.getCode().toString().equals("ENTER")){
+            connectBtn.fire();
+        }
+    }
 
     @FXML
     private void onConnectBtnClick(ActionEvent event){

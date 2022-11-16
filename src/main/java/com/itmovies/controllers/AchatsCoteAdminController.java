@@ -31,7 +31,7 @@ public class AchatsCoteAdminController {
         table.getColumns().clear();
     }
     private String query = """
-            select a.id ID, a.etat Etat, c.nom "Client", f.titre Film, DATE_FORMAT(date, '%d-%b-%Y') Date, f.prix Prix
+            select a.id ID, a.etat Etat, c.nom "Client", f.titre Film, DATE_FORMAT(date, '%d-%b-%Y') Date, f.prix Prix, f.stock Stock
             from achats a
             join films f on a.idFilm=f.id
             join clients c on a.cinClient=c.cin
