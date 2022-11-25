@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="393.0" prefWidth="671.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.SplashScreenController">
+<AnchorPane prefHeight="400.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.SplashScreenController">
    <children>
-      <ImageView id="background" fitHeight="400.0" fitWidth="702.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="background" fitHeight="400.0" fitWidth="694.0" layoutX="-3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./assets/SplashScreenBg.jpg" />
          </image>
+         <effect>
+            <ColorAdjust brightness="-0.5" />
+         </effect>
       </ImageView>
+      <ProgressBar fx:id="progressBar" layoutX="77.0" layoutY="291.0" prefHeight="46.0" prefWidth="527.0" progress="0.0" />
+      <Label layoutX="77.0" layoutY="266.0" text="Chargement..." textFill="WHITE" />
    </children>
 </AnchorPane>

@@ -13,25 +13,30 @@
             <Image url="@./assets/IT (3).jpg" />
          </image>
       </ImageView>
-      <Button fx:id="gererLesFilmsBtn" layoutX="351.0" layoutY="72.0" mnemonicParsing="false" onAction="#onGererLesFilmsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Movies" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesFilmsBtn" layoutX="348.0" layoutY="95.0" mnemonicParsing="false" onAction="#onGererLesFilmsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #3399ff;" text="Manage Movies" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="gererLesClientsBtn" layoutX="351.0" layoutY="140.0" mnemonicParsing="false" onAction="#onGererLesClientsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Customers" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesClientsBtn" layoutX="348.0" layoutY="164.0" mnemonicParsing="false" onAction="#onGererLesClientsClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #3399ff;" text="Manage Customers" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="351.0" layoutY="211.0" mnemonicParsing="false" onAction="#onHistoriqueBtnClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Show History" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="afficherHistoriqueAdminBtn" layoutX="348.0" layoutY="233.0" mnemonicParsing="false" onAction="#onHistoriqueBtnClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #3399ff;" text="Show History" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="changerMdpBtn" layoutX="351.0" layoutY="346.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Change Password" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="changerMdpBtn" layoutX="348.0" layoutY="369.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #3399ff;" text="Change Password" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <Button fx:id="gererLesAdminsBtn" layoutX="351.0" layoutY="280.0" mnemonicParsing="false" onAction="#onClickGererLesAdminsBtn" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #a35f94;" text="Manage Administrators" textAlignment="CENTER" textFill="#fffffff0">
+      <Button fx:id="gererLesAdminsBtn" layoutX="348.0" layoutY="302.0" mnemonicParsing="false" onAction="#onClickGererLesAdminsBtn" prefHeight="49.0" prefWidth="191.0" style="-fx-background-color: #3399ff;" text="Manage Administrators" textAlignment="CENTER" textFill="#fffffff0">
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
+      <ImageView fx:id="exitIcon" fitHeight="35.0" fitWidth="36.0" layoutX="506.0" layoutY="14.0" onMouseClicked="#onExitIconClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/x.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>

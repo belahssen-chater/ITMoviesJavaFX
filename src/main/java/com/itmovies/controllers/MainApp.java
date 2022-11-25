@@ -12,7 +12,6 @@ import java.io.IOException;
 public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
-        //writed by belahssen's PC
 
         FXMLLoader fxmlLoader = new FXMLLoader(MainApp.class.getResource("SplashScreen.fxml"));
         Scene splashScene = new Scene(fxmlLoader.load());
@@ -34,6 +33,7 @@ public class MainApp extends Application {
         stage.setResizable(false);
         stage.setTitle("Connectez-vous");
         stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
         new Thread(() -> {
             try {
                 Thread.sleep(2000);

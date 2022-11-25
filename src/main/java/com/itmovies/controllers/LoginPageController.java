@@ -7,7 +7,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,8 +27,14 @@ public class LoginPageController {
     private TextField loginField;
     @FXML
     private PasswordField passwordField;
+    @FXML
+    private ImageView exitIcon;
 
-
+    @FXML
+    void onExitIconClick(MouseEvent event) {
+        // Close the program
+        System.exit(0);
+    }
 
     @FXML
     private void onKeyPressedPwdField(KeyEvent event){

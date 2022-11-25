@@ -121,18 +121,28 @@ public class GestionFilmsController {
 
 
     @FXML
-    void onAjouterBtnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void onAjouterBtnClick(ActionEvent event) {
         okBtn.setVisible(false);
         if (textFields.isVisible()){
             if (checkFields()){
                 getValues();
                 filmToAdd = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
-                if (filmToAdd.ajouterFilm()){
-                    Utilities.showErrorMessage("Succes");
-                    clearTable();
-                    Utilities.buildData("SELECT * FROM FILMS", table);
-                } else {
-                    Utilities.showErrorMessage("Echec");
+                try {
+                    if (filmToAdd.ajouterFilm()){
+                        Utilities.showErrorMessage("Succes");
+                        clearTable();
+                        Utilities.buildData("SELECT * FROM FILMS", table);
+                    } else {
+                        Utilities.showErrorMessage("Echec");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    Utilities.showErrorMessage("Une erreur est survenue");
+                    Utilities.showErrorMessage(e.toString());
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    Utilities.showErrorMessage("Une erreur est survenue");
+                    Utilities.showErrorMessage(e.toString());
                 }
 
             } else{
@@ -148,23 +158,33 @@ public class GestionFilmsController {
     }
 
     @FXML
-    void onModifierBtnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void onModifierBtnClick(ActionEvent event) {
         if (checkFields()){
             getValues();
             filmToModify = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
             if (filmToModify.equals(baseFilm)){
                 Utilities.showErrorMessage("Rien n'a été modifié");
             } else {
-                if (baseFilm.modifierFilm(filmToModify)){
-                    Utilities.showErrorMessage("Succes");
-                    clearTable();
-                    Utilities.buildData("SELECT * FROM FILMS", table);
-                    ajouterBtn.setDisable(false);
-                    modifierBtn.setDisable(true);
-                    supprimerBtn.setDisable(true);
-                    textFields.setVisible(false);
-                } else {
-                    Utilities.showErrorMessage("Echec");
+                try {
+                    if (baseFilm.modifierFilm(filmToModify)){
+                        Utilities.showErrorMessage("Succes");
+                        clearTable();
+                        Utilities.buildData("SELECT * FROM FILMS", table);
+                        ajouterBtn.setDisable(false);
+                        modifierBtn.setDisable(true);
+                        supprimerBtn.setDisable(true);
+                        textFields.setVisible(false);
+                    } else {
+                        Utilities.showErrorMessage("Echec");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                    Utilities.showErrorMessage("Une erreur est survenue");
+                    Utilities.showErrorMessage(e.toString());
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                    Utilities.showErrorMessage("Une erreur est survenue");
+                    Utilities.showErrorMessage(e.toString());
                 }
             }
         } else{
@@ -198,17 +218,23 @@ public class GestionFilmsController {
     }
 
     @FXML
-    void onSupprimerBtnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
-        if (baseFilm.supprimerFilm()){
-             Utilities.showErrorMessage("Succes");
-             clearTable();
-             Utilities.buildData("SELECT * FROM FILMS", table);
-             ajouterBtn.setDisable(false);
-             modifierBtn.setDisable(true);
-             supprimerBtn.setDisable(true);
-             textFields.setVisible(false);
-        } else {
-            Utilities.showErrorMessage("Echec");
+    void onSupprimerBtnClick(ActionEvent event) {
+        try {
+            if (baseFilm.supprimerFilm()){
+                 Utilities.showErrorMessage("Succes");
+                 clearTable();
+                 Utilities.buildData("SELECT * FROM FILMS", table);
+                 ajouterBtn.setDisable(false);
+                 modifierBtn.setDisable(true);
+                 supprimerBtn.setDisable(true);
+                 textFields.setVisible(false);
+            } else {
+                Utilities.showErrorMessage("Echec");
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            Utilities.showErrorMessage("Une erreur est survenue");
+            Utilities.showErrorMessage(e.toString());
         }
     }
     @FXML

@@ -37,16 +37,6 @@ public class SplashScreenController {
                 }
                 progressBar.setProgress(i / 100.0);
             }
-            /*Platform.runLater(() -> {
-                try {
-                    Stage stage = (Stage) background.getScene().getWindow();
-                    stage.close();
-                    stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"))));
-                    stage.show();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });*/
         }).start();
 
 

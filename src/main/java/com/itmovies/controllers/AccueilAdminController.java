@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +32,14 @@ public class AccueilAdminController {
     private Button gererLesAdminsBtn;
     @FXML
     private Button changerMdpBtn;
+    @FXML
+    private ImageView exitIcon;
+
+    @FXML
+    void onExitIconClick(MouseEvent event) {
+        // Close the program
+        System.exit(0);
+    }
 
     @FXML
     private void onClickGererLesAdminsBtn(ActionEvent event){

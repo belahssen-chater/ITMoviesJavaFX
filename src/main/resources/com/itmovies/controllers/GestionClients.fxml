@@ -63,5 +63,10 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="811.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/x.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

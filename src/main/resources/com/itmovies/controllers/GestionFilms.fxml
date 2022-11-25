@@ -32,16 +32,16 @@
          </font></Button>
       <Pane fx:id="textFields" layoutX="122.0" layoutY="36.0" prefHeight="315.0" prefWidth="272.0">
          <children>
-            <Label layoutX="4.0" layoutY="4.0" text="Title" textFill="WHITE">
+            <Label layoutX="4.0" layoutY="9.0" text="Title" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="titreField" layoutX="87.0" />
-            <Label layoutX="2.0" layoutY="45.0" prefHeight="17.0" prefWidth="60.0" text="Director" textFill="WHITE">
+            <TextField fx:id="titreField" layoutX="87.0" layoutY="6.0" />
+            <Label layoutX="4.0" layoutY="49.0" prefHeight="17.0" prefWidth="60.0" text="Director" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="realField" layoutX="87.0" layoutY="41.0" />
+            <TextField fx:id="realField" layoutX="87.0" layoutY="45.0" />
             <Label layoutX="6.0" layoutY="88.0" text="Language" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
@@ -51,17 +51,17 @@
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="anneeField" layoutX="87.0" layoutY="124.0" />
+            <TextField fx:id="anneeField" layoutX="87.0" layoutY="123.0" />
             <Label layoutX="5.0" layoutY="164.0" text="Duration" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="dureeField" layoutX="87.0" layoutY="160.0" />
-            <Label layoutX="7.0" layoutY="199.0" text="Price" textFill="WHITE">
+            <TextField fx:id="dureeField" layoutX="87.0" layoutY="161.0" />
+            <Label layoutX="7.0" layoutY="202.0" text="Price" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="prixField" layoutX="87.0" layoutY="195.0" />
+            <TextField fx:id="prixField" layoutX="87.0" layoutY="199.0" />
             <Button fx:id="okBtn" layoutX="155.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOkBtnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Done" textFill="WHITE" />
             <Label layoutX="7.0" layoutY="241.0" text="Stock" textFill="WHITE">
                <font>

@@ -101,7 +101,7 @@ public class GestionAdminsController {
             if (adminToAdd.ajouterAdmin()){
                 Utilities.showSuccessMessage("Admin ajouté avec succès");
                 clearTable();
-                Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+                Utilities.buildData("SELECT id, nom, prenom FROM admins WHERE id!='super'", table);
                 fieldsPane.setVisible(false);
                 return;
             }
@@ -126,7 +126,7 @@ public class GestionAdminsController {
             if (baseAdmin.modifierAdmin(adminToModify)){
                 Utilities.showSuccessMessage("Admin modifié avec succès");
                 clearTable();
-                Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+                Utilities.buildData("SELECT id, nom, prenom FROM admins WHERE id!='super'", table);
                 fieldsPane.setVisible(false);
                 return;
             }
@@ -144,7 +144,7 @@ public class GestionAdminsController {
         if (baseAdmin.supprimerAdmin()){
             Utilities.showSuccessMessage("Admin supprimé avec succès");
             clearTable();
-            Utilities.buildData("SELECT id, nom, prenom FROM admins", table);
+            Utilities.buildData("SELECT id, nom, prenom FROM admins WHERE id!='super'", table);
             fieldsPane.setVisible(false);
             return;
         }
@@ -165,7 +165,8 @@ public class GestionAdminsController {
         idValue = idField.getText();
     }
     private void fillValues(Admin admin){
-        // remplissage des champs sauf mdp et id
+        // remplissage des champs sauf mdp
+        idField.setText(admin.getId());
         nomField.setText(admin.getNom());
         prenomField.setText(admin.getPrenom());
 

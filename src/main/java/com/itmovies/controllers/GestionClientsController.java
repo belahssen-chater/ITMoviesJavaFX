@@ -113,24 +113,36 @@ public class GestionClientsController {
 
     @FXML
     void onModifierBtnClick(ActionEvent event) {
-        if (!checkFieldsWithoutCin()){
+        getValues();
+        Client clientToModify;
+        if (checkFieldsWithoutCin()){
+            mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
+            clientToModify = new Client(cinValue, nomValue, mdpValue, telValue);
+        } else if (checkFieldsWithoutCINandMdp()){
+            clientToModify = new Client(cinValue, nomValue, "", telValue);
+        } else{
             Utilities.showErrorMessage("Veuillez remplir tous les champs");
             return;
         }
-        getValues();
-        Client clientToModify;
-        if (mdpField.getText().isBlank())
+        /*if (!checkFieldsWithoutCin()){
+            Utilities.showErrorMessage("Veuillez remplir les champs requis");
+            return;
+        }*/
+        /*if (mdpField.getText().isBlank())
             clientToModify = new Client(cinValue, nomValue, "", telValue);
         else{
             mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
             clientToModify = new Client(cinValue, nomValue, mdpValue, telValue);
-        }
+        }*/
         try {
             if (baseClient.modifierClient(clientToModify)) {
                 Utilities.showSuccessMessage("client modifié avec succès");
                 clearTable();
                 Utilities.buildData("SELECT cin, nom, tel FROM clients", table);
                 fieldsPane.setVisible(false);
+                ajouterBtn.setDisable(false);
+                modifierBtn.setDisable(true);
+                supprimerBtn.setDisable(true);
                 return;
             }
         } catch (SQLException e) {
@@ -138,7 +150,11 @@ public class GestionClientsController {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+
         Utilities.showErrorMessage("Erreur lors de la modification du client");
+        ajouterBtn.setDisable(false);
+        modifierBtn.setDisable(true);
+        supprimerBtn.setDisable(true);
 
     }
 
@@ -190,6 +206,10 @@ public class GestionClientsController {
         // check if there is one or more blank fields
         return !(nomField.getText().isBlank() || telField.getText().isBlank() || mdpField.getText().isBlank());
     }
+    private boolean checkFieldsWithoutCINandMdp(){
+        // check if there is one or more blank fields
+        return !(nomField.getText().isBlank() || telField.getText().isBlank());
+    }
     private void getUserData(ActionEvent event){
         Node node = (Node) event.getSource();
         Stage stage = (Stage) node.getScene().getWindow();
@@ -197,28 +217,6 @@ public class GestionClientsController {
         userID = ((String) stage.getUserData()).split("-")[1];
         System.out.println(userID);
     }
-    /*private void showFieldsWithCinAndMdp(){
-        // show fields without cin and mdp
-        fieldsPane.setVisible(true);
 
-
-    }
-    private void hideFieldsWithIdAndMdp(){
-        // hide fields with id and mdp
-        fieldsPane.setVisible(false);
-
-    }
-    private void showFieldsWithoutIdAndMdp(){
-        // show fields without id and mdp
-        fieldsPane.setVisible(true);
-        idField.setVisible(false);
-        mdpField.setVisible(false);
-    }
-    private void hideFieldsWithoutIdAndMdp(){
-        // hide fields without id and mdp
-        fieldsPane.setVisible(false);
-        idField.setVisible(true);
-        mdpField.setVisible(true);
-    }*/
 
 }

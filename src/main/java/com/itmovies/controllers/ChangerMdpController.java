@@ -51,15 +51,15 @@ public class ChangerMdpController {
     }
 
     @FXML
-    void onChangerMdpClick(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void onChangerMdpClick(ActionEvent event) {
         try{
-            test(event);
+            changeMdp(event);
         } catch (SQLException | ClassNotFoundException e){
             System.err.println(e);
         }
 
     }
-    void test(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeMdp(ActionEvent event) throws SQLException, ClassNotFoundException {
         String query;
         if (Utilities.con.isClosed()) {
             Utilities.connectDB();
