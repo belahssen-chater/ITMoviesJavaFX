@@ -44,7 +44,7 @@ public class Admin {
                 Utilities.connectDB();
             }
             statement = Utilities.con.createStatement();
-            if (statement.executeQuery("SELECT * FROM ADMINS WHERE id='"+id+"'").next()){
+            if (statement.executeQuery("SELECT * FROM `admins` WHERE id='"+id+"'").next()){
                 Utilities.showErrorMessage("Admin existant");
                 return false;
             }

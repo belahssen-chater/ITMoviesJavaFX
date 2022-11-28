@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="589.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionClientsController">
+<AnchorPane prefHeight="589.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionClientsController">
    <children>
       <ImageView fitHeight="608.0" fitWidth="900.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -63,9 +63,9 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="811.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="832.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@assets/x.png" />
+            <Image url="@assets/x-removebg-preview.png" />
          </image>
       </ImageView>
    </children>

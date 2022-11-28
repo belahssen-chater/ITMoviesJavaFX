@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="498.0" prefWidth="554.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilAdminController">
    <children>
       <ImageView fitHeight="519.0" fitWidth="703.0" layoutX="-94.0" layoutY="-16.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,9 +33,9 @@
          <font>
             <Font name="Calisto MT" size="15.0" />
          </font></Button>
-      <ImageView fx:id="exitIcon" fitHeight="35.0" fitWidth="36.0" layoutX="506.0" layoutY="14.0" onMouseClicked="#onExitIconClick" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="exitIcon" fitHeight="39.0" fitWidth="53.0" layoutX="487.0" layoutY="14.0" onMouseClicked="#onExitIconClick" pickOnBounds="true" smooth="false">
          <image>
-            <Image url="@assets/x.png" />
+            <Image url="@./assets/x-removebg-preview.png" />
          </image>
       </ImageView>
    </children>
