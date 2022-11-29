@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -82,8 +83,8 @@ public class Utilities {
     public static void connectDB() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
-        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/moviesdb","root","root");
-        //con = DriverManager.getConnection("jdbc:mysql://195.179.238.52/u962515021_moviesdb","u962515021_root","ITMovies2022");
+        //con = DriverManager.getConnection("jdbc:mysql://localhost:3306/moviesdb","root","root");
+        con = DriverManager.getConnection("jdbc:mysql://195.179.238.52/u962515021_moviesdb","u962515021_root","ITMovies2022");
 
     }
     public static void clearTable(TableView table){
@@ -91,6 +92,16 @@ public class Utilities {
             table.getItems().clear();
         }
         table.getColumns().clear();
+    }
+    public static void switchScene(String fxmlFileName, String title, String userType, String userId, MouseEvent event) throws IOException {
+        //root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+        root = FXMLLoader.load(Utilities.class.getResource(fxmlFileName));
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setUserData(userType + "-" + userId);
+        stage.setScene(scene);
+        stage.setTitle(title);
+        stage.show();
     }
 
     public static void buildData(String sql, TableView table){
@@ -134,6 +145,7 @@ public class Utilities {
                 data.add(row);
 
             }
+
 
             //FINALLY ADDED TO TableView
             table.setItems(data);

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionFilmsController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionFilmsController">
    <children>
       <ImageView fitHeight="658.0" fitWidth="819.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
              <Image url="@./assets/IT.jpg" />
@@ -30,7 +30,7 @@
          <font>
             <Font name="Calisto MT" size="14.0" />
          </font></Button>
-      <Pane fx:id="textFields" layoutX="122.0" layoutY="36.0" prefHeight="315.0" prefWidth="272.0">
+      <Pane fx:id="textFields" layoutX="22.0" layoutY="132.0" prefHeight="229.0" prefWidth="564.0">
          <children>
             <Label layoutX="4.0" layoutY="9.0" text="Title" textFill="WHITE">
                <font>
@@ -52,22 +52,22 @@
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
             <TextField fx:id="anneeField" layoutX="87.0" layoutY="123.0" />
-            <Label layoutX="5.0" layoutY="164.0" text="Duration" textFill="WHITE">
+            <Label layoutX="302.0" layoutY="20.0" text="Duration" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="dureeField" layoutX="87.0" layoutY="161.0" />
-            <Label layoutX="7.0" layoutY="202.0" text="Price" textFill="WHITE">
+            <TextField fx:id="dureeField" layoutX="395.0" layoutY="20.0" />
+            <Label layoutX="304.0" layoutY="58.0" text="Price" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="prixField" layoutX="87.0" layoutY="199.0" />
-            <Button fx:id="okBtn" layoutX="155.0" layoutY="275.0" mnemonicParsing="false" onAction="#onOkBtnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Done" textFill="WHITE" />
-            <Label layoutX="7.0" layoutY="241.0" text="Stock" textFill="WHITE">
+            <TextField fx:id="prixField" layoutX="395.0" layoutY="58.0" prefHeight="25.0" prefWidth="149.0" />
+            <Button fx:id="okBtn" layoutX="395.0" layoutY="148.0" mnemonicParsing="false" onAction="#onOkBtnClick" prefHeight="36.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Done" textFill="WHITE" />
+            <Label layoutX="304.0" layoutY="97.0" text="Stock" textFill="WHITE">
                <font>
                   <Font name="Bookman Old Style" size="15.0" />
                </font></Label>
-            <TextField fx:id="stockField" layoutX="87.0" layoutY="237.0" />
+            <TextField fx:id="stockField" layoutX="395.0" layoutY="96.0" prefHeight="25.0" prefWidth="149.0" />
          </children>
       </Pane>
       <TableView fx:id="table" layoutX="22.0" layoutY="367.0" prefHeight="273.0" prefWidth="776.0">
@@ -79,9 +79,10 @@
             <Font name="Copperplate Gothic Light" size="19.0" />
          </font></Label>
       <TextField fx:id="rechercheField" cache="true" cacheHint="QUALITY" layoutX="603.0" layoutY="319.0" onKeyReleased="#onRechercheFieldChange" prefHeight="36.0" prefWidth="195.0" />
-      <Button fx:id="retourBtn" cache="true" cacheHint="QUALITY" defaultButton="true" layoutX="14.0" layoutY="21.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="45.0" prefWidth="79.0" style="-fx-background-color: #c71521;" text="Back" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="Calisto MT" size="14.0" />
-         </font></Button>
+      <ImageView fx:id="retourBtn" fitHeight="88.0" fitWidth="93.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#onRetourBtnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/backbutton-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
