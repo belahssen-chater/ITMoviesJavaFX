@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -48,6 +50,21 @@ public class AchatsCoteAdminController {
 
     @FXML
     private Button validerBtn;
+    @FXML
+    private TextField searchField;
+    @FXML
+    void onSearchFieldChange(KeyEvent event) {
+        String keyword = searchField.getText();
+        String query = """
+                SELECT * FROM FILMS WHERE stock > 0 AND (id like ? OR 
+                titre like ? OR realisateur like ? OR 
+                langue like ? OR annee like ? OR duree like ? OR 
+                prix like ? OR stock like ?)
+                """;
+        query = query.replaceAll("\\?", "'%" +keyword+ "%'");
+        Utilities.clearTable(table);
+        Utilities.buildData(query, table);
+    }
 
     @FXML
     void initialize() {

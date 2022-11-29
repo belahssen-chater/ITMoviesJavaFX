@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -56,6 +57,19 @@ public class GestionClientsController {
 
     @FXML
     private Pane fieldsPane;
+    @FXML
+    private TextField searchField;
+    @FXML
+    void onSearchFieldChange(KeyEvent event) {
+        String keyword = searchField.getText();
+        String query = """
+                SELECT cin, nom, tel FROM clients
+                WHERE cin LIKE ? OR nom LIKE ? OR tel LIKE ?
+                """;
+        query = query.replaceAll("\\?", "'%" +keyword+ "%'");
+        Utilities.clearTable(table);
+        Utilities.buildData(query, table);
+    }
 
     @FXML
     void initialize() {

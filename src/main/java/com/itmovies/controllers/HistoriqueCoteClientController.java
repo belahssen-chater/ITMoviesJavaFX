@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -31,7 +33,21 @@ public class HistoriqueCoteClientController {
 
     @FXML
     private TableView<?> table;
-
+    @FXML
+    private TextField searchField;
+    @FXML
+    void onSearchFieldChange(KeyEvent event) {
+        String keyword = searchField.getText();
+        String query = """
+            SELECT f.titre Film, DATE_FORMAT(a.date, '%d-%b-%Y') \"Date d'achat\", a.etat Etat, f.prix Prix
+            FROM achats a
+            JOIN films f ON a.idFilm=f.id
+            WHERE a.cinClient='"""+userID+
+                "' AND (f.titre LIKE ? OR a.etat LIKE ? OR DATE_FORMAT(a.date, '%d-%b-%Y') LIKE ? OR f.prix LIKE ?)";
+        query = query.replaceAll("\\?", "'%" +keyword+ "%'");
+        Utilities.clearTable(table);
+        Utilities.buildData(query, table);
+    }
 
 
     @FXML

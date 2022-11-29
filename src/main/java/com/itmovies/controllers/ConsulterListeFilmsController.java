@@ -8,6 +8,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -21,9 +23,25 @@ public class ConsulterListeFilmsController {
 
     @FXML
     private TableView<?> table;
+    @FXML
+    private TextField searchField;
+    @FXML
+    void onSearchFieldChange(KeyEvent event) {
+        String keyword = searchField.getText();
+        String query = """
+            select a.id ID, a.etat Etat, c.nom "Client", f.titre Film, DATE_FORMAT(date, '%d-%b-%Y') Date, f.prix Prix, f.stock Stock
+            from achats a
+            join films f on a.idFilm=f.id
+            join clients c on a.cinClient=c.cin
+            WHERE a.id LIKE ? OR a.etat LIKE ? OR c.nom LIKE ? OR f.titre LIKE ? OR DATE_FORMAT(date, '%d-%b-%Y') LIKE ? OR f.prix LIKE ? OR f.stock LIKE ?
+            """;
+        query = query.replaceAll("\\?", "'%" +keyword+ "%'");
+        Utilities.clearTable(table);
+        Utilities.buildData(query, table);
+    }
 
     public void initialize(){
-        Utilities.buildData("SELECT * FROM `films`", table);
+        Utilities.buildData("SELECT * FROM `films` WHERE stock>0", table);
         System.out.println(userType);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {

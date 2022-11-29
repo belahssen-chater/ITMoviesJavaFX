@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -57,6 +58,20 @@ public class GestionAdminsController {
 
     @FXML
     private TableView<?> table;
+
+    @FXML
+    private TextField searchField;
+    @FXML
+    void onSearchFieldChange(KeyEvent event) {
+        String keyword = searchField.getText();
+        String query = """
+                SELECT id, nom, prenom FROM `admins` WHERE id!='super'
+                AND (id LIKE ? OR nom LIKE ? OR prenom LIKE ?)
+                """;
+        query = query.replaceAll("\\?", "'%" +keyword+ "%'");
+        Utilities.clearTable(table);
+        Utilities.buildData(query, table);
+    }
 
     public void initialize(){
         Utilities.buildData("SELECT id, nom, prenom FROM `admins` WHERE id!='super'", table);

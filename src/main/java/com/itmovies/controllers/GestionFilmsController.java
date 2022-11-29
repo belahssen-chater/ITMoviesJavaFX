@@ -20,7 +20,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GestionFilmsController {
     private String userID;
@@ -124,13 +127,13 @@ public class GestionFilmsController {
     void onAjouterBtnClick(ActionEvent event) {
         okBtn.setVisible(false);
         if (textFields.isVisible()){
-            if (checkFields()){
+            if (checkFields() && checkFieldsPattern()){
                 getValues();
                 filmToAdd = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
                 try {
                     if (filmToAdd.ajouterFilm()){
                         Utilities.showErrorMessage("Succes");
-                        clearTable();
+                        Utilities.clearTable(table);
                         Utilities.buildData("SELECT * FROM FILMS", table);
                     } else {
                         Utilities.showErrorMessage("Echec");
@@ -159,7 +162,7 @@ public class GestionFilmsController {
 
     @FXML
     void onModifierBtnClick(ActionEvent event) {
-        if (checkFields()){
+        if (checkFields() && checkFieldsPattern()){
             getValues();
             filmToModify = new Film(titreVal, realisateurVal, langueVal, anneeVal, dureeVal, prixVal, stockVal);
             if (filmToModify.equals(baseFilm)){
@@ -168,7 +171,7 @@ public class GestionFilmsController {
                 try {
                     if (baseFilm.modifierFilm(filmToModify)){
                         Utilities.showErrorMessage("Succes");
-                        clearTable();
+                        Utilities.clearTable(table);
                         Utilities.buildData("SELECT * FROM FILMS", table);
                         ajouterBtn.setDisable(false);
                         modifierBtn.setDisable(true);
@@ -191,12 +194,6 @@ public class GestionFilmsController {
             Utilities.showErrorMessage("Verifiez les champs");
         }
     }
-    public void clearTable(){
-        for ( int i = 0; i<table.getItems().size(); i++) {
-            table.getItems().clear();
-        }
-        table.getColumns().clear();
-    }
 
     @FXML
     void onOkBtnClick(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -213,7 +210,7 @@ public class GestionFilmsController {
                 prix like ? OR stock like ?
                 """;
         query = query.replaceAll("\\?", "'%" +keyword+ "%'");
-        clearTable();
+        Utilities.clearTable(table);
         Utilities.buildData(query, table);
     }
 
@@ -222,7 +219,7 @@ public class GestionFilmsController {
         try {
             if (baseFilm.supprimerFilm()){
                  Utilities.showErrorMessage("Succes");
-                 clearTable();
+                 Utilities.clearTable(table);
                  Utilities.buildData("SELECT * FROM FILMS", table);
                  ajouterBtn.setDisable(false);
                  modifierBtn.setDisable(true);
@@ -283,6 +280,49 @@ public class GestionFilmsController {
              fields) {
             if (field.getText().isBlank())
                 return false;
+        }
+        return true;
+    }
+
+    // TODO: 29/11/2022 READ THIS
+    private boolean checkFieldsPattern(){
+        // dureeField, pattern = hh+h+mm
+        // anneeField, pattern = yyyy
+        // prixField, pattern = 0.00
+        // stockField, pattern = 0
+
+        //duree field
+        Pattern dureePattern = Pattern.compile("^(0?\\d|1[0-9]|2[0-4])h0?[0-5][0-9]?$");
+        Matcher dureeMatcher = dureePattern.matcher(dureeField.getText());
+        if (!dureeMatcher.matches()) {
+            Utilities.showErrorMessage("La durée doit être au format hh+h+mm");
+            return false;
+        }
+        //annee field
+        Pattern anneePattern = Pattern.compile("^\\d{4}$");
+        Matcher anneeMatcher = anneePattern.matcher(anneeField.getText());
+        //get the current year
+        int currentYear = Calendar.getInstance().get(Calendar.YEAR);
+        if (!anneeMatcher.matches()) {
+            Utilities.showErrorMessage("L'année doit être au format yyyy");
+            return false;
+        } else if (Integer.parseInt(anneeField.getText()) > currentYear){
+            Utilities.showErrorMessage("L'année ne peut pas être supérieure à l'année actuelle");
+            return false;
+        }
+        //prix field
+        Pattern prixPattern = Pattern.compile("^\\d+(\\.\\d{1,2})?$");
+        Matcher prixMatcher = prixPattern.matcher(prixField.getText());
+        if (!prixMatcher.matches()) {
+            Utilities.showErrorMessage("Le prix doit être au format 0.00");
+            return false;
+        }
+        //stock field
+        Pattern stockPattern = Pattern.compile("^\\d+$");
+        Matcher stockMatcher = stockPattern.matcher(stockField.getText());
+        if (!stockMatcher.matches()) {
+            Utilities.showErrorMessage("Le stock doit être un nombre entier");
+            return false;
         }
         return true;
     }
