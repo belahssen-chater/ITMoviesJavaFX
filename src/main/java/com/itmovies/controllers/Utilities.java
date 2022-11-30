@@ -46,6 +46,7 @@ public class Utilities {
 
     public static void switchScene(String fxmlFileName, String title, ActionEvent event) throws IOException {
         //root = FXMLLoader.load(getClass().getResource(fxmlFileName));
+        //load the new fxml file
         root = FXMLLoader.load(Utilities.class.getResource(fxmlFileName));
 
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -111,8 +112,7 @@ public class Utilities {
         try{
             if (Utilities.con.isClosed())
                 Utilities.connectDB();
-            //SQL FOR SELECTING ALL OF CUSTOMER
-            //ResultSet
+            //SQL FOR SELECTING ALL ROWS DEPENDING ON THE SQL QUERY
             ResultSet rs = Utilities.con.createStatement().executeQuery(sql);
 
             /**********************************
@@ -151,8 +151,8 @@ public class Utilities {
             table.setItems(data);
         }catch(Exception e){
             e.printStackTrace();
-            System.out.println(e.toString());
-            System.out.println("Error on Building Data");
+            Utilities.showErrorMessage("Error on Building Data");
+            Utilities.showErrorMessage(e.getMessage());
         }
     }
 }

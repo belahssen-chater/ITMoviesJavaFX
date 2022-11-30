@@ -101,11 +101,6 @@ public class Admin {
     }
 
 
-    public boolean equals(Admin admin){
-        // fields check
-        return this.nom.equals(admin.nom) && this.prenom.equals(admin.prenom);
-    }
-
     public String getId() {
         return id;
     }
