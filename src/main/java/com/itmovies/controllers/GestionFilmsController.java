@@ -9,7 +9,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 
 import javafx.stage.Stage;
@@ -77,7 +79,7 @@ public class GestionFilmsController {
     @FXML
     private TextField titreField;
     @FXML
-    private Button retourBtn;
+    private ImageView retourBtn;
 
     //private ObservableList<ObservableList> data;
     private String titreVal;
@@ -235,7 +237,7 @@ public class GestionFilmsController {
         }
     }
     @FXML
-    void onRetourBtnClick(ActionEvent event) throws IOException {
+    void onRetourBtnClick(MouseEvent event) throws IOException {
         getUserData(event);
         System.out.println(userID);
         System.out.println(userType);
@@ -244,6 +246,14 @@ public class GestionFilmsController {
         } else {
             Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
         }
+    }
+
+    private void getUserData(MouseEvent event){
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        userType = ((String) stage.getUserData()).split("-")[0];
+        userID = ((String) stage.getUserData()).split("-")[1];
+        System.out.println(userID);
     }
 
 

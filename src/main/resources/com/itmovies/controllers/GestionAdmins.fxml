@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="673.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionAdminsController">
+<AnchorPane prefHeight="673.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionAdminsController">
    <children>
       <ImageView fitHeight="685.0" fitWidth="963.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -44,5 +44,10 @@
       <Button fx:id="retourBtn" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="39.0" prefWidth="74.0" text="Back" />
       <Label layoutX="571.0" layoutY="225.0" text="Search" textFill="WHITE" />
       <TextField fx:id="searchField" layoutX="619.0" layoutY="221.0" onKeyReleased="#onSearchFieldChange" prefHeight="26.0" prefWidth="181.0" />
+      <ImageView fx:id="retourBtn" fitHeight="39.0" fitWidth="74.0" layoutX="135.0" layoutY="14.0" onMouseClicked="#onRetourBtnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/backbutton-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

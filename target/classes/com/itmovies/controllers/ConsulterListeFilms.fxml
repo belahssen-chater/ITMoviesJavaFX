@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -26,9 +28,11 @@
          <font>
             <Font name="Calibri Light" size="18.0" />
          </font></Button>
-      <Button fx:id="acheterBtn" disable="true" layoutX="745.0" layoutY="117.0" mnemonicParsing="false" onAction="#onAcheterBtnClick" prefHeight="49.0" prefWidth="92.0" text="Buy" textFill="#6e69ae">
+      <Button fx:id="acheterBtn" disable="true" layoutX="745.0" layoutY="64.0" mnemonicParsing="false" onAction="#onAcheterBtnClick" prefHeight="49.0" prefWidth="92.0" text="Buy" textFill="#6e69ae">
          <font>
             <Font name="Bookman Old Style Bold Italic" size="14.0" />
          </font></Button>
+      <Label layoutX="607.0" layoutY="145.0" text="Search" textFill="WHITE" />
+      <TextField fx:id="searchField" layoutX="655.0" layoutY="141.0" onKeyReleased="#onSearchFieldChange" prefHeight="26.0" prefWidth="181.0" />
    </children>
 </AnchorPane>

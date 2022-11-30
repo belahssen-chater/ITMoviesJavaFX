@@ -10,14 +10,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="673.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionAdminsController">
+<AnchorPane prefHeight="673.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.GestionAdminsController">
    <children>
       <ImageView fitHeight="685.0" fitWidth="963.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./assets/IT (2).jpg" />
          </image>
       </ImageView>
-      <Pane fx:id="fieldsPane" layoutX="62.0" layoutY="87.0" prefHeight="133.0" prefWidth="362.0">
+      <Pane fx:id="fieldsPane" layoutX="61.0" layoutY="113.0" prefHeight="133.0" prefWidth="362.0">
          <children>
             <Label layoutX="20.0" layoutY="37.0" prefHeight="28.0" prefWidth="54.0" text="Name" textFill="#ffdd00" />
             <Label layoutX="20.0" layoutY="72.0" prefHeight="28.0" prefWidth="65.0" text="Firts name" textFill="#ffdd00" />
@@ -29,18 +29,25 @@
             <TextField fx:id="idField" layoutX="107.0" layoutY="2.0" prefHeight="25.0" prefWidth="182.0" />
          </children>
       </Pane>
-      <Pane layoutX="661.0" layoutY="66.0" prefHeight="184.0" prefWidth="200.0">
+      <Pane layoutX="641.0" layoutY="34.0" prefHeight="184.0" prefWidth="200.0">
          <children>
             <Button fx:id="ajouterBtn" layoutX="54.0" layoutY="27.0" mnemonicParsing="false" onAction="#onAjouterBtnClick" prefHeight="39.0" prefWidth="74.0" text="Add" textFill="#127079" />
             <Button fx:id="supprimerBtn" disable="true" layoutX="54.0" layoutY="131.0" mnemonicParsing="false" onAction="#onSupprimerBtnClick" prefHeight="39.0" prefWidth="74.0" text="Delete" textFill="#127079" />
             <Button fx:id="modifierBtn" disable="true" layoutX="54.0" layoutY="76.0" mnemonicParsing="false" onAction="#onModifierBtnClick" prefHeight="39.0" prefWidth="74.0" text="Modify" textFill="#127079" />
          </children>
       </Pane>
-      <TableView fx:id="table" layoutX="49.0" layoutY="269.0" prefHeight="366.0" prefWidth="754.0">
+      <TableView fx:id="table" layoutX="47.0" layoutY="287.0" prefHeight="366.0" prefWidth="754.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
       <Button fx:id="retourBtn" layoutX="36.0" layoutY="14.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="39.0" prefWidth="74.0" text="Back" />
+      <Label layoutX="571.0" layoutY="225.0" text="Search" textFill="WHITE" />
+      <TextField fx:id="searchField" layoutX="619.0" layoutY="221.0" onKeyReleased="#onSearchFieldChange" prefHeight="26.0" prefWidth="181.0" />
+      <ImageView fx:id="retourBtn" fitHeight="39.0" fitWidth="74.0" layoutX="135.0" layoutY="14.0" onMouseClicked="#onRetourBtnClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/backbutton-removebg-preview.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
