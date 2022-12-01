@@ -138,16 +138,6 @@ public class GestionClientsController {
             Utilities.showErrorMessage("Veuillez remplir tous les champs");
             return;
         }
-        /*if (!checkFieldsWithoutCin()){
-            Utilities.showErrorMessage("Veuillez remplir les champs requis");
-            return;
-        }*/
-        /*if (mdpField.getText().isBlank())
-            clientToModify = new Client(cinValue, nomValue, "", telValue);
-        else{
-            mdpValue = BCrypt.hashpw(mdpValue, Utilities.SALT);
-            clientToModify = new Client(cinValue, nomValue, mdpValue, telValue);
-        }*/
         try {
             if (baseClient.modifierClient(clientToModify)) {
                 Utilities.showSuccessMessage("client modifié avec succès");
@@ -166,6 +156,10 @@ public class GestionClientsController {
         }
 
         Utilities.showErrorMessage("Erreur lors de la modification du client");
+        cinField.setText("");
+        nomField.setText("");
+        telField.setText("");
+        mdpField.setText("");
         ajouterBtn.setDisable(false);
         modifierBtn.setDisable(true);
         supprimerBtn.setDisable(true);

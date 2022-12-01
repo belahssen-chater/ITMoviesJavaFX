@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="580.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.ConsulterListeFilmsController">
+<AnchorPane onMouseMoved="#onMouseOverPane" prefHeight="580.0" prefWidth="828.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.ConsulterListeFilmsController">
    <children>
       <ImageView fitHeight="600.0" fitWidth="910.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,7 +20,7 @@
             <ColorAdjust brightness="-0.3" />
          </effect>
       </ImageView>
-      <TableView fx:id="table" layoutX="32.0" layoutY="180.0" onMouseEntered="#onMouseEnteredOnTable" prefHeight="394.0" prefWidth="791.0">
+      <TableView fx:id="table" layoutX="32.0" layoutY="180.0" prefHeight="394.0" prefWidth="791.0">
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy></TableView>

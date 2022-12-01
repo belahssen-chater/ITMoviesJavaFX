@@ -79,7 +79,7 @@ public class Client {
             preparedStatement.setString(3, this.cin);
             rowsAffected = preparedStatement.executeUpdate();
         } else {
-            query = "UPDATE clients SET nom=?, tel=?, password=? WHERE id=?;";
+            query = "UPDATE clients SET nom=?, tel=?, password=? WHERE cin=?;";
             preparedStatement = Utilities.con.prepareStatement(query);
             preparedStatement.setString(1, client.nom);
             preparedStatement.setString(2, client.tel);

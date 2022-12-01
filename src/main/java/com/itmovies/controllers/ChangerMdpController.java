@@ -52,9 +52,7 @@ public class ChangerMdpController {
     @FXML
     void onRetourBtnClick(MouseEvent event) {
         getUserData(event);
-        System.out.println(userID);
-        System.out.println(userType);
-        if (userType == "client"){
+        if (userType.equals("client")){
             try {
                 Utilities.switchScene("AccueilClient.fxml", "Espace client", userType, userID, event);
             } catch (IOException e) {
@@ -72,7 +70,7 @@ public class ChangerMdpController {
 
 
 
-    @FXML
+    /*@FXML
     void onRetourBtnClick(ActionEvent event) throws IOException {
         getUserData(event);
         if (userType.equals("client")){
@@ -80,7 +78,7 @@ public class ChangerMdpController {
         } else {
             Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
         }
-    }
+    }*/
 
     @FXML
     void onChangerMdpClick(ActionEvent event) {

@@ -50,6 +50,7 @@ public class AccueilAdminController {
                 Utilities.switchScene("GestionAdmins.fxml", "Gestion des administrateurs", userType, userID, event);
             } catch (IOException e) {
                 Utilities.showErrorMessage(e.getMessage());
+                System.out.println(e.toString());
             }
         } else
             Utilities.showErrorMessage("You are not allowed to manage admins");
