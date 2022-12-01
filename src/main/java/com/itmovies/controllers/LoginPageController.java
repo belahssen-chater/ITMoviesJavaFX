@@ -29,6 +29,10 @@ public class LoginPageController {
     private PasswordField passwordField;
     @FXML
     private ImageView exitIcon;
+    @FXML
+    private void onForgotPwdClick(MouseEvent event){
+        Utilities.showSuccessMessage("Veuillez contacter l'admin pour reinitialiser votre mot de passe");
+    }
 
     @FXML
     void onExitIconClick(MouseEvent event) {

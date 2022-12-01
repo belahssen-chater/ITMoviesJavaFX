@@ -29,11 +29,8 @@ public class ConsulterListeFilmsController {
     void onSearchFieldChange(KeyEvent event) {
         String keyword = searchField.getText();
         String query = """
-            select a.id ID, a.etat Etat, c.nom "Client", f.titre Film, DATE_FORMAT(date, '%d-%b-%Y') Date, f.prix Prix, f.stock Stock
-            from `achats` a
-            join `films` f on a.idFilm=f.id
-            join `clients` c on a.cinClient=c.cin
-            WHERE a.id LIKE ? OR a.etat LIKE ? OR c.nom LIKE ? OR f.titre LIKE ? OR DATE_FORMAT(date, '%d-%b-%Y') LIKE ? OR f.prix LIKE ? OR f.stock LIKE ?
+            SELECT * FROM `films` WHERE stock>0
+            AND (id like ? or titre like ? or realisateur like ? or langue like ? or annee like ? or duree like ? or prix like ? or stock like ?)
             """;
         query = query.replaceAll("\\?", "'%" +keyword+ "%'");
         Utilities.clearTable(table);
