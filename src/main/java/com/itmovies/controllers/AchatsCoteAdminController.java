@@ -56,11 +56,12 @@ public class AchatsCoteAdminController {
     void onSearchFieldChange(KeyEvent event) {
         String keyword = searchField.getText();
         String query = """
-                SELECT * FROM FILMS WHERE stock > 0 AND (id like ? OR 
-                titre like ? OR realisateur like ? OR 
-                langue like ? OR annee like ? OR duree like ? OR 
-                prix like ? OR stock like ?)
-                """;
+            select a.id ID, a.etat Etat, c.nom "Client", f.titre Film, DATE_FORMAT(date, '%d-%b-%Y') Date, f.prix Prix, f.stock Stock
+            from `achats` a
+            join `films` f on a.idFilm=f.id
+            join `clients` c on a.cinClient=c.cin
+            where c.nom like ? or f.titre like ? or a.etat like ? or a.date like ? or f.prix like ? or f.stock like ? or a.id like ?
+            """;
         query = query.replaceAll("\\?", "'%" +keyword+ "%'");
         Utilities.clearTable(table);
         Utilities.buildData(query, table);
