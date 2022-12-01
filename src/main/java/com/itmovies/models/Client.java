@@ -105,11 +105,6 @@ public class Client {
         return rowsAffected > 0;
     }
 
-    public boolean equals(Client client){
-        return this.nom.equals(client.nom) && this.tel.equals(client.tel);
-    }
-
-
     public String getCin() {
         return cin;
     }
