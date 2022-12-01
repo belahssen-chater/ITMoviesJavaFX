@@ -71,10 +71,16 @@ public class ConsulterListeFilmsController {
             Utilities.showErrorMessage("Erreur lors de l'achat");
         }
     }
+    int nbHover = 0;
     @FXML
-    private void onMouseEnteredOnTable(MouseEvent event) {
-        System.out.println("Mouse entered on table");
-        getUserData(event);
+    private void onMouseOverPane(MouseEvent event) {
+        if (nbHover == 0) {
+            getUserData(event);
+            System.out.println(userType);
+            System.out.println(userID);
+            nbHover++;
+        }
+
     }
     private String userID;
     private String userType;

@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -20,6 +21,12 @@ public class AccueilClientController {
 
     @FXML
     private Button afficherHistoriqueBtn;
+
+    @FXML
+    void onExitIconClick(MouseEvent event) {
+        // Close the program
+        System.exit(0);
+    }
 
     @FXML
     private Button changerMdpBtn;
