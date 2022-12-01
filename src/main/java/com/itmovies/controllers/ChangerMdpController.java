@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class ChangerMdpController {
         System.out.println(userType);
     }
 
+
     @FXML
     private PasswordField ancienMdpField;
 
@@ -35,8 +38,37 @@ public class ChangerMdpController {
 
     @FXML
     private PasswordField nouveauMdpField;
+    //d'ici
+    private void getUserData(MouseEvent event){
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        userType = ((String) stage.getUserData()).split("-")[0];
+        userID = ((String) stage.getUserData()).split("-")[1];
+        System.out.println(userID);
+        System.out.println(userType);
+    }
     @FXML
-    private Button retourBtn;
+    private ImageView retourBtn;
+    @FXML
+    void onRetourBtnClick(MouseEvent event) {
+        getUserData(event);
+        System.out.println(userID);
+        System.out.println(userType);
+        if (userType == "client"){
+            try {
+                Utilities.switchScene("AccueilClient.fxml", "Espace client", userType, userID, event);
+            } catch (IOException e) {
+                Utilities.showErrorMessage(e.toString());
+            }
+        } else {
+            try {
+                Utilities.switchScene("AccueilAdmin.fxml", "Espace client", userType, userID, event);
+            } catch (IOException e) {
+                Utilities.showErrorMessage(e.toString());
+            }
+        }
+    }
+    //a ici
 
 
 

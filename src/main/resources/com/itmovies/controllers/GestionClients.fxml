@@ -27,7 +27,10 @@
             </MotionBlur>
          </effect>
       </ImageView>
-      <Button fx:id="retourBtn" layoutX="34.0" layoutY="24.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="31.0" prefWidth="59.0" text="Back" textFill="#09184d" />
+      <Button fx:id="retourBtn" layoutX="34.0" layoutY="24.0" mnemonicParsing="false" onAction="#onRetourBtnClick" prefHeight="31.0" prefWidth="59.0" style="-fx-background-color: ff0000;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT Bold Italic" size="12.0" />
+         </font></Button>
       <Pane fx:id="fieldsPane" layoutX="34.0" layoutY="94.0" prefHeight="198.0" prefWidth="286.0">
          <children>
             <Label layoutX="21.0" layoutY="24.0" text="CIN" textFill="#f7f7f7">
@@ -63,17 +66,7 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <ImageView fitHeight="38.0" fitWidth="37.0" layoutX="832.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/x-removebg-preview.png" />
-         </image>
-      </ImageView>
       <Label layoutX="621.0" layoutY="269.0" text="Search" textFill="WHITE" />
       <TextField fx:id="searchField" layoutX="669.0" layoutY="265.0" onKeyReleased="#onSearchFieldChange" prefHeight="26.0" prefWidth="181.0" />
-      <ImageView fx:id="retourBtn" fitHeight="38.0" fitWidth="113.0" layoutX="102.0" layoutY="14.0" onMouseClicked="#onRetourBtnClick" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@assets/backbutton-removebg-preview.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>

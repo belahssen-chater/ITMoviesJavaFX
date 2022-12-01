@@ -17,7 +17,7 @@
             <ColorAdjust brightness="-0.5" />
          </effect>
       </ImageView>
-      <ProgressBar fx:id="progressBar" layoutX="77.0" layoutY="291.0" prefHeight="46.0" prefWidth="527.0" progress="0.0" style="-fx-region-border: #ff8000;" />
+      <ProgressBar fx:id="progressBar" layoutX="77.0" layoutY="291.0" prefHeight="46.0" prefWidth="527.0" progress="0.0" />
       <Label layoutX="77.0" layoutY="266.0" text="Chargement..." textFill="WHITE" />
    </children>
 </AnchorPane>

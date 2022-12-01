@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="502.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilClientController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="548.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.itmovies.controllers.AccueilClientController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="513.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="450.0" fitWidth="573.0" layoutX="-10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@./assets/IT.jpg" />
          </image>
@@ -17,17 +17,17 @@
             <ColorAdjust brightness="-0.62" />
          </effect>
       </ImageView>
-      <Button fx:id="consulterLesFilmsBtn" layoutX="51.0" layoutY="88.0" mnemonicParsing="false" onAction="#onConsulterFilmsClick" prefHeight="48.0" prefWidth="160.0" text="Consulter la liste de films" textFill="#8d4040">
+      <Button fx:id="consulterLesFilmsBtn" layoutX="51.0" layoutY="88.0" mnemonicParsing="false" onAction="#onConsulterFilmsClick" prefHeight="48.0" prefWidth="218.0" text="CONSULT THE FILM LIST" textFill="#8d4040">
          <font>
             <Font name="Javanese Text" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="afficherHistoriqueBtn" layoutX="51.0" layoutY="169.0" mnemonicParsing="false" onAction="#onAfficherHistoriqueClick" prefHeight="48.0" prefWidth="160.0" text="Afficher son historique" textFill="#8d4040">
+      <Button fx:id="afficherHistoriqueBtn" layoutX="51.0" layoutY="170.0" mnemonicParsing="false" onAction="#onAfficherHistoriqueClick" prefHeight="48.0" prefWidth="218.0" text="VIEW ITS HISTORY" textFill="#8d4040">
          <font>
             <Font name="Javanese Text" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="changerMdpBtn" layoutX="51.0" layoutY="246.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="48.0" prefWidth="160.0" text="Changer son mot de passe" textFill="#8d4040">
+      <Button fx:id="changerMdpBtn" layoutX="51.0" layoutY="246.0" mnemonicParsing="false" onAction="#onChangerMdpClick" prefHeight="48.0" prefWidth="218.0" text="CHANGE PASSWORD" textFill="#8d4040">
          <font>
             <Font name="Javanese Text" size="12.0" />
          </font>

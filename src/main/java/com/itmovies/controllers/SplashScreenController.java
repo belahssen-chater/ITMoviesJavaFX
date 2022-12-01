@@ -27,6 +27,7 @@ public class SplashScreenController {
 
     @FXML
     void initialize() {
+        progressBar.setStyle("-fx-accent: orange;");
         // fake a progress bar for 2  sec
         new Thread(() -> {
             for (int i = 0; i < 100; i++) {

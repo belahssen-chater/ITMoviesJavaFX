@@ -114,6 +114,7 @@ public class Achat {
         }
         return rowsAffected > 0;
     }
+    //verifier si l'achat a déjà été traité
     private boolean isTreated(){
         try {
             if (Utilities.con.isClosed()){
