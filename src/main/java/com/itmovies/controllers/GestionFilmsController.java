@@ -99,6 +99,7 @@ public class GestionFilmsController {
 
 
     public void initialize(){
+        okBtn.setVisible(false);
         Utilities.buildData("SELECT * FROM `films`", table);
         table.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
